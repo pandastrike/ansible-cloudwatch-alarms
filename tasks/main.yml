@@ -1,0 +1,23 @@
+---
+- name: Get instance id
+  command: curl http://169.254.169.254/latest/meta-data/instance-id
+  register: this_instance_id
+
+- name: Create utilization alarms
+  environment:
+    AWS_CREDENTIAL_FILE: "{{aws_credential_file_dest}}"
+  with_dict: metric_alarms
+  ec2_metric_alarm:
+    state: present
+    region: "{{alarm_region}}"
+    alarm_actions: "{{alarm_recipients}}"
+    dimensions: "{{item.value.dimensions}}"
+    namespace: "{{item.value.namespace}}"
+    name: "{{item.value.alarm_name}}"
+    metric: "{{item.value.metric}}"
+    statistic: "{{item.value.statistic}}"
+    comparison: "{{item.value.comparison}}"
+    threshold: "{{item.value.threshold}}"
+    period: "{{item.value.period}}"
+    evaluation_periods: "{{item.value.period}}"
+    unit: "{{item.value.unit}}"

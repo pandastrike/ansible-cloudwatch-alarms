@@ -1,0 +1,46 @@
+---
+app_name: "{{tag_project}}-{{env}}"
+#alarm_recipients: ["arn:aws:sns:us-west-1:1234567890:Example"]
+alarm_region: "{{region}}"
+
+metric_alarms:
+  cpu_util:
+    metric: "CPUUtilization"
+    unit: "Percent"
+    statistic: "Average"
+    comparison: ">="
+    alarm_name: "{{app_name}}-cpu-util"
+    period: 60
+    threshold: 95
+    namespace: "AWS/EC2"
+    dimensions: {'InstanceId':'{{this_instance_id.stdout}}'}
+  disk_util:
+    metric: "DiskSpaceUtilization"
+    unit: "Percent"
+    statistic: "Average"
+    comparison: ">="
+    alarm_name: "{{app_name}}-disk-util"
+    period: 60
+    threshold: 80
+    namespace: "System/Linux"
+    dimensions: 'InstanceId={{this_instance_id.stdout}},Filesystem=/dev/xvda1,MountPath=/'
+  memory_util:
+    metric: "MemoryUtilization"
+    unit: "Percent"
+    statistic: "Average"
+    comparison: ">="
+    alarm_name: "{{app_name}}-memory-util"
+    period: 60
+    threshold: 80
+    namespace: "System/Linux"
+    dimensions: {'InstanceId':'{{this_instance_id.stdout}}'}
+  swap_util:
+    metric: "SwapUtilization"
+    unit: "Percent"
+    statistic: "Average"
+    comparison: ">="
+    alarm_name: "{{app_name}}-swap-util"
+    period: 60
+    threshold: 80
+    namespace: "System/Linux"
+    dimensions: {'InstanceId':'{{this_instance_id.stdout}}'}
