@@ -1,6 +1,5 @@
 ---
 app_name: "{{tag_project}}-{{env}}"
-#alarm_recipients: ["arn:aws:sns:us-west-1:1234567890:Example"]
 alarm_region: "{{region}}"
 
 metric_alarms:
