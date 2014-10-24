@@ -1,0 +1,10 @@
+---
+galaxy_info:
+  author: "Peter Nguyen"
+  company: Panda Strike
+  license: license (BSD)
+  min_ansible_version: 1.8 (or higher)
+  platforms:
+    - Arch Linux
+  categories: []
+dependencies: []
