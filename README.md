@@ -4,7 +4,7 @@ ansible-cloudwatch-metrics
 This script uses Ansible's ec2_metric_alarm module to create/update alarms based on CPU, disk space, memory, and swap utilization.  
 
 It requires AWS keys and, if you want the alarms to actually be useful, the target instance to be consistently sending its metrics.  
-The accompanying Ansible script to send metrics can be found here: https://github.com/pandastrike/ansible-cloudwatch-metrics  
+The previous, accompanying Ansible role to send metrics can be found here: https://github.com/pandastrike/ansible-cloudwatch-metrics  
 
 Required variables:  
 `aws_credential_file_dest`: location of AWS credential file on target instance  
