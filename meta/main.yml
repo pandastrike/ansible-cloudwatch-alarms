@@ -7,9 +7,6 @@ galaxy_info:
   min_ansible_version: 1.8
   platforms:
   - name: Arch Linux
-    versions:
-    - precise
   categories:
   - monitoring
-  - deployment
   - "cloud:ec2"
