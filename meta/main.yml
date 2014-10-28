@@ -3,10 +3,11 @@ galaxy_info:
   author: Peter Nguyen
   description: Create ec2 alarms from metric data
   company: Panda Strike
-  license: license (BSD)
   min_ansible_version: 1.8
   platforms:
   - name: Arch Linux
   categories:
   - monitoring
-  - "cloud:ec2"
+  - cloud:ec2
+
+dependencies: []
